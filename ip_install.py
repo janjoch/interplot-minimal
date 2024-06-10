@@ -3,7 +3,6 @@ if __name__ == "__main__":
     import re
     import io
     from pathlib import Path
-    from shutil import move
 
     def unpack(dir="interplot"):
         """Unpack the module to the current directory."""
