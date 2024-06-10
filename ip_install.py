@@ -7,7 +7,7 @@ if __name__ == "__main__":
 
     def unpack(dir="interplot"):
         """Unpack the module to the current directory."""
-        with io.open("interplot.py", "r", encoding="utf-8") as file:
+        with io.open("ip_install.py", "r", encoding="utf-8") as file:
             content = file.read()
         dir = Path(dir)
         dir.mkdir(parents=True, exist_ok=True)
