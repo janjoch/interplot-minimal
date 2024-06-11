@@ -1,54 +1,58 @@
+import re
+import io
+from pathlib import Path
+
+
+def unpack(dir="interplot/interplot"):
+    """Unpack the module to the current directory."""
+    this_file = Path(__file__)
+    with io.open(this_file, "r", encoding="utf-8") as file:
+        content = file.read()
+    dir = this_file.parent / dir
+    dir.mkdir(parents=True, exist_ok=True)
+
+    for match in re.finditer(
+        (
+            r"^#### ([a-zA-Z0-9._/-]*?) ####\n####+?\n"  # file flag
+            r"(.*?)"  # file content
+            r"####+?\n"  # next file flag
+        ),
+        content,
+        re.DOTALL | re.MULTILINE
+    ):
+        path = Path("interplot") / match.group(1).strip()
+        filecontent = re.sub(
+            r"\n#[ ]{0,3}",
+            r"\n",
+            match.group(2),
+        )[4:]
+        print("unpacking:", path)
+        # print(filecontent[:100])
+        with io.open(path, "w+", encoding="utf-8") as file:
+            file.write(filecontent)
+
+    print("Successfully unpacked interplot to current directory.\n")
+    print("Now call:")
+    print("cd interplot")
+    print("pip install -e .")
+
+
 if __name__ == "__main__":
-
-    import re
-    import io
-    from pathlib import Path
-
-    def unpack(dir="interplot/interplot"):
-        """Unpack the module to the current directory."""
-        this_file = Path(__file__)
-        with io.open(this_file, "r", encoding="utf-8") as file:
-            content = file.read()
-        dir = this_file.parent / dir
-        dir.mkdir(parents=True, exist_ok=True)
-        for match in re.finditer(
-            (
-                r"^#### ([a-zA-Z0-9._/-]*?) ####\n####+?\n"  # file flag
-                r"(.*?)"  # file content
-                r"####+?\n"  # next file flag
-            ),
-            content,
-            re.DOTALL | re.MULTILINE
-        ):
-            path = Path(match.group(1).strip())
-            filecontent = re.sub(
-                r"\n#[ ]{0,3}",
-                r"\n",
-                match.group(2),
-            )[4:]
-            print("unpacking:", path)
-            # print(filecontent[:100])
-            with io.open(path, "w+", encoding="utf-8") as file:
-                file.write(filecontent)
-        print("Successfully unpacked interplot to current directory.\n")
-        print("Now call:")
-        print("cd interplot")
-        print("pip install -e .")
 
     unpack()
 
-###########################
-#### interplot/test.py ####
-###########################
+#################
+#### test.py ####
+#################
 #   """ Test the interplot import."""
 #   if __name__ == "__main__":
 #       import interplot as ip
 #       fig = ip.Plot()
 #       fig.add_line([0, 1, 2, 3], [0, 1, 4, 9])
 #       print("Success!")
-####################################
-#### interplot/requirements.txt ####
-####################################
+##########################
+#### requirements.txt ####
+##########################
 #   numba
 #   numpy
 #   pandas
@@ -57,9 +61,9 @@ if __name__ == "__main__":
 #   kaleido
 #   scipy
 #   xarray
-############################
-#### interplot/setup.py ####
-############################
+##################
+#### setup.py ####
+##################
 #   from setuptools import setup
 #   with open("requirements.txt", "r", encoding="utf-8") as f:
 #       requirements = f.read().splitlines()
@@ -93,9 +97,9 @@ if __name__ == "__main__":
 #           'Programming Language :: Python :: 3.8',
 #       ],
 #   )
-#############################
-#### interplot/README.md ####
-#############################
+###################
+#### README.md ####
+###################
 #   # interplot
 #
 #   [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/#   janjoch/interplot/HEAD) [![NBViewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/janjoch/interplot/tree/main/)
@@ -233,9 +237,9 @@ if __name__ == "__main__":
 #   ## Contribute
 #
 #   Ideas, bug reports/fixes, feature requests and code submissions are very welcome! Please write to [janjo@duck.com](mailto:janjo@duck.com) or directly into a pull request.
-#########################################
-#### interplot/interplot/__init__.py ####
-#########################################
+###############################
+#### interplot/__init__.py ####
+###############################
 #   """Create matplotlib/plotly hybrid plots with a few lines of code."""
 #
 #   import pkg_resources
@@ -256,9 +260,9 @@ if __name__ == "__main__":
 #
 #   except Exception:
 #       __version__ = "not detected!"
-#####################################
-#### interplot/interplot/plot.py ####
-#####################################
+###########################
+#### interplot/plot.py ####
+###########################
 #   """
 #   Create `matplotlib/plotly` hybrid plots with a few lines of code.
 #
@@ -2987,9 +2991,9 @@ if __name__ == "__main__":
 #           return super()._plot_core(
 #               self.data[var], *args, sel=sel, isel=isel, **kwargs
 #           )
-#####################################
-#### interplot/interplot/iter.py ####
-#####################################
+###########################
+#### interplot/iter.py ####
+###########################
 #   """Tools to iterate Python objects."""
 #
 #   from warnings import warn
@@ -3301,9 +3305,9 @@ if __name__ == "__main__":
 #       if unpack_nozip and isinstance(arg, NoZip):
 #           arg = arg()
 #       return (arg,) * maxlen
-#####################################
-#### interplot/interplot/conf.py ####
-#####################################
+###########################
+#### interplot/conf.py ####
+###########################
 #   """
 #   Modify the default behavior of the `interplot` package.
 #
@@ -3646,9 +3650,9 @@ if __name__ == "__main__":
 #       -------
 #       `interplot.Plot` instance
 #   """
-###########################################
-#### interplot/interplot/arraytools.py ####
-###########################################
+#################################
+#### interplot/arraytools.py ####
+#################################
 #   """Work with 1D arrays."""
 #
 #
@@ -4049,6 +4053,6 @@ if __name__ == "__main__":
 #                   **kwargs_pi,
 #                   **kwargs,
 #               )
-############
-#### END ###
-############
+#############
+#### END ####
+#############
