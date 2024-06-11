@@ -5,7 +5,13 @@
 Create `matplotlib` and `plotly` charts with the same few lines of code.
 
 THIS IS A STANDALONE FILE VERSION OF THE [interplot](https://github.com/janjoch/interplot) MODULE V0.1.2.
-CALL `python interplot.py` TO UNPACK THE FILE INTO A PYTHON-IMPORTABLE MODULE.
+
+Call to unpack the file into a python-impotable module.
+
+```
+python ip_install.py
+pip install -r ip_requirements.txt
+```
 
 It combines the best of the `matplotlib` and the `plotly` worlds through a unified, flat API.
 

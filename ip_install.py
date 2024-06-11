@@ -13,8 +13,8 @@ if __name__ == "__main__":
         for match in re.finditer(
             (
                 r"([a-zA-Z0-9._/-]*?) ###\n"  # file flag
-                r"(.*?)^\n"              # file content
-                r"    ###"    # next file flag
+                r"(.*?)^\n"  # file content
+                r"    ###"  # next file flag
             ),
             content,
             re.DOTALL | re.MULTILINE
