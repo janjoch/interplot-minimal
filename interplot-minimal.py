@@ -26,11 +26,14 @@ if __name__ == "__main__":
                 r"\n",
                 match.group(2),
             )[4:]
-            print("file:", path)
+            print("unpacking:", path)
             # print(filecontent[:100])
             with io.open(path, "w+", encoding="utf-8") as file:
                 file.write(filecontent)
-        print("Unpacked module to current directory.")
+        print("Successfully unpacked interplot to current directory.\n")
+        print("Now call:")
+        print("cd interplot")
+        print("pip install -e .")
 
     unpack()
 
@@ -66,7 +69,7 @@ if __name__ == "__main__":
 #   long_description = (this_directory / "README.md").read_text()
 #   setup(
 #       name='interplot',
-#       version='0.1.2m',
+#       version='0.1.2',
 #       description=(
 #           "Create matplotlib and plotly charts with the same few lines of code."
 #       ),
