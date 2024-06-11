@@ -6,13 +6,6 @@ Create `matplotlib` and `plotly` charts with the same few lines of code.
 
 THIS IS A STANDALONE FILE VERSION OF THE [interplot](https://github.com/janjoch/interplot) MODULE V0.1.2.
 
-Call to unpack the file into a python-impotable module.
-
-```
-python ip_install.py
-pip install -r ip_requirements.txt
-```
-
 It combines the best of the `matplotlib` and the `plotly` worlds through a unified, flat API.
 
 Switch between `matplotlib` and `plotly` with the single keyword `interactive`. All the necessary boilerplate code to translate between the packages is contained in this module.
@@ -132,13 +125,11 @@ Try on `Binder`:
 
 
 ## Install
-```pip install interplot```
-
-
-### dev installation
-1. ```git clone https://github.com/janjoch/interplot```
-2. ```cd interplot```
-2. ```pip install -e .```
+```
+python interplot-minimal.py
+cd interplot
+pip install -e .
+```
 
 
 ## Contribute
