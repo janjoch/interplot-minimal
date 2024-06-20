@@ -1,10 +1,8 @@
 # interplot
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/janjoch/interplot/HEAD) [![NBViewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/janjoch/interplot/tree/main/)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/#   janjoch/interplot/HEAD) [![NBViewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/janjoch/interplot/tree/main/)
 
 Create `matplotlib` and `plotly` charts with the same few lines of code.
-
-THIS IS A STANDALONE FILE VERSION OF THE [interplot](https://github.com/janjoch/interplot) MODULE V0.1.2.
 
 It combines the best of the `matplotlib` and the `plotly` worlds through a unified, flat API.
 
@@ -125,11 +123,13 @@ Try on `Binder`:
 
 
 ## Install
-```
-python interplot-minimal.py
-cd interplot
-pip install -e .
-```
+```pip install interplot```
+
+
+### dev installation
+1. ```git clone https://github.com/janjoch/interplot```
+2. ```cd interplot```
+2. ```pip install -e .```
 
 
 ## Contribute

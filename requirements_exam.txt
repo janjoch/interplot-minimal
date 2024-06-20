@@ -1,0 +1,9 @@
+numba
+numpy
+pandas==1.5.3
+matplotlib==3.7.0
+matplotlib-base==3.7.0
+matplotlib-inline==0.1.6
+plotly==5.9.0
+scipy==1.10.0
+xarray==2022.11.0
